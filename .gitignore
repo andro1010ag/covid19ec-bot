@@ -3,4 +3,4 @@ target/**/*.csv
 node_modules
 .vscode
 .DS_Store
-source/.DS_Store.DS_Store
+source/.DS_Store
