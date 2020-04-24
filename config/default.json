@@ -40,7 +40,7 @@
     "connection": {
       "host": "localhost",
       "user": "root",
-      "password": "Passw0rd",
+      "password": "lunesyviernespapas",
       "database": "covid19ec"
     },
     "table": "msp"
@@ -49,6 +49,18 @@
     {
       "name": "cities",
       "query": "SELECT cant_residencia as city, prov_residencia as province, count(*) as confirmed, cod_prov_res as cartodbId, cod_cant_res as cantonId FROM covid19ec.msp WHERE resultado_laboratorio = 'Positivo' GROUP BY cant_residencia, prov_residencia, cod_prov_res, cod_cant_res ORDER BY cod_prov_res, cod_cant_res"
+    },
+    {
+      "name": "onset_of_symptoms",
+      "query": "SELECT DATE_FORMAT(inicio_sintomas, '%Y-%m-%d') AS date, COUNT(*) AS total FROM covid19ec.msp WHERE resultado_laboratorio = 'Positivo' GROUP BY inicio_sintomas"
+    },
+    {
+      "name": "age_group",
+      "query": "SELECT REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(grupo_edad, \"mas de \", \"+\"),\"de \", \"\"),\" a \", \" - \"),\"años\", \"\"),\"meses\", \"\") as `group`,count(*) as confirmed FROM covid19ec.msp WHERE resultado_laboratorio = 'Positivo' GROUP BY grupo_edad"
+    },
+    {
+      "name": "deaths_by_province",
+      "query": "SELECT prov_residencia, cod_prov_res as cartodbId, COUNT(*) as numberofDeaths FROM msp WHERE condicion_paciente='Muerto' AND resultado_laboratorio='Positivo' group by prov_residencia, cod_prov_res"
     }
   ]
 }

@@ -2,3 +2,5 @@ source/**/*.csv
 target/**/*.csv
 node_modules
 .vscode
+.DS_Store
+source/.DS_Store
