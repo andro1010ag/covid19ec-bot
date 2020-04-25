@@ -24,8 +24,6 @@ CREATE TABLE `msp` (
   `grupo_edad` varchar(20) DEFAULT NULL,
   `inicio_sintomas` date DEFAULT NULL,
   `diagnostico` varchar(200) DEFAULT NULL,
-  `resultado_laboratorio` varchar(20) DEFAULT NULL,
-  `laboratorio_procesa` varchar(100) DEFAULT NULL,
   `condicion_paciente` varchar(10) DEFAULT NULL,
   `clasificacion_caso` varchar(50) DEFAULT NULL,
   `total_muestras` int(11) DEFAULT NULL,
